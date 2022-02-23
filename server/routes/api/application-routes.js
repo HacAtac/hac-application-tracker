@@ -2,9 +2,17 @@ const router = require("express").Router();
 const { Application } = require("../../models");
 
 // GET /api/applications
+//get all applications from the database
 router.get("/", (req, res) => {
   // Access our Application model and run .findAll() method)
-  Application.findAll({});
+  Application.findAll({
+    attributes: { exclude: ["createdAt", "updatedAt"] },
+  })
+    .then((dbApplicationData) => res.json(dbApplicationData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 // GET /api/applications/1
