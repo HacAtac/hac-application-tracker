@@ -47,7 +47,26 @@ router.post("/", (req, res) => {
 });
 
 // PUT /api/users/1
-router.put("/:id", (req, res) => {});
+//route to update an application by id
+router.put("/:id", (req, res) => {
+  // expects {jobname: 'yada', jobtype: etc. etc. etc.}
+  Application.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbApplicationData) => {
+      if (!dbApplicationData) {
+        res.status(404).json({ message: "No application found with this id" });
+        return;
+      }
+      res.json(dbApplicationData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 // DELETE /api/applications/1
 router.delete("/:id", (req, res) => {
