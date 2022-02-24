@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import Header from "./components/Header";
 
 function App() {
-  return <div className="text-4xl font-bold">Hello World</div>;
+  const [currentPage, setCurrentPage] = useState("Home");
+
+  return (
+    <div>
+      <Header
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      ></Header>
+    </div>
+  );
 }
 
 export default App;
