@@ -1,8 +1,19 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
+import Home from "./components/Home";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Home");
+
+  const handleClick = () => {
+    switch (currentPage) {
+      case "Home":
+        return <Home />;
+
+      default:
+        return <Home />;
+    }
+  };
 
   return (
     <div>
@@ -10,6 +21,9 @@ function App() {
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       ></Header>
+      <div>
+        <main>{handleClick()}</main>
+      </div>
     </div>
   );
 }
