@@ -3,52 +3,55 @@ const sequelize = require('../config/config')
 
 // create Application model
 class Application extends Model {}
-
 Application.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    CompanyName: {
+    company: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    InterviewDate: {
-      type: DataTypes.DATE,
-      allowNull: true,
-    },
-    InterviewTime: {
-      type: DataTypes.TIME,
-      allowNull: true,
-    },
-    InterviewLocation: {
+    role: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
-    DateApplied: {
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    appDate: {
       type: DataTypes.DATE,
       allowNull: false,
     },
-    Status: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    interviewDate: {
+      type: DataTypes.DATE,
+      allowNull: true,
     },
-    FollowUp: {
+    notes: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+    contactEmail: {
       type: DataTypes.STRING,
+      allowNull: true,
+    },
+    contactPhone: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    contactName: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    followDate: {
+      type: DataTypes.DATE,
       allowNull: true,
     },
   },
-  {
-    hooks: {},
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'Application',
-  }
+  { sequelize, modelName: 'application' }
 )
 
 module.exports = Application

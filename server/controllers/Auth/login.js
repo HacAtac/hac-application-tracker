@@ -6,30 +6,36 @@ const User = require('../../models/User')
 //@route POST /api/auth/login
 //@access Public
 const login = asyncHandler(async (req, res) => {
-  const { email, password } = req.body
-  // Check if user exists
-  const user = await User.findOne({ where: { email } })
-  if (!user) {
-    return res.status(400).json({
-      success: false,
-      message: 'Invalid credentials',
+  try {
+    // Need to make a login function
+    const { username, password } = req.body
+    const user = await User.findOne({
+      where: {
+        username,
+      },
+    })
+    if (!user) {
+      return res.status(400).json({
+        message: 'Invalid credentials',
+      })
+    }
+    const isMatch = await user.checkPassword(password)
+    if (!isMatch) {
+      return res.status(400).json({
+        message: 'Invalid credentials',
+      })
+    }
+    const token = generateToken(user)
+    res.status(200).json({
+      token,
+      ...user,
+    })
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({
+      message: `Server Error: ${error}`,
     })
   }
-  // Check if password is correct
-  const isMatch = await user.matchPassword(password)
-  if (!isMatch) {
-    return res.status(400).json({
-      success: false,
-      message: 'Invalid credentials',
-    })
-  }
-  // Generate token
-  const token = generateToken(user)
-  // Respond with token
-  res.status(200).json({
-    success: true,
-    token,
-  })
 })
 
 module.exports = login

@@ -6,6 +6,7 @@ const colors = require('colors')
 const { notFound, errorHandler } = require('./middleware/errorMiddleware')
 
 const authRoutes = require('./routes/authRoutes')
+const applicationRoutes = require('./routes/applicationRoutes')
 
 const app = express()
 
@@ -19,6 +20,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use('/api/auth', authRoutes)
+app.use('/api/application', applicationRoutes)
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')))
 
