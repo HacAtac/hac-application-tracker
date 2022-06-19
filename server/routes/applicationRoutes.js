@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const application = require('../controllers/Application/application')
+const putApplication = require('../controllers/Application/putApplication')
 
 const { protect, admin } = require('../middleware/authMiddleware')
 
@@ -11,5 +12,6 @@ const { protect, admin } = require('../middleware/authMiddleware')
  */
 
 router.route('/').post(protect, application)
+router.route('/:id').put(protect, putApplication)
 
 module.exports = router

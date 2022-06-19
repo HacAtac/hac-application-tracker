@@ -9,11 +9,13 @@ const application = asyncHandler(async (req, res) => {
   try {
     const application = await Application.create({
       ...req.body,
+      userId: req.user.id,
     })
 
     res.status(200).json({
       data: application,
-      message: `Application created successfully`,
+      message: `${req.user.username} created a new application`,
+      userId: req.user.id,
     })
   } catch (error) {
     console.error(error)
