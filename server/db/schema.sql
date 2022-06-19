@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS job_app_trac_db;
+DROP DATABASE IF EXISTS jobtracker;
 
-CREATE DATABASE job_app_trac_db;
+CREATE DATABASE jobtracker;

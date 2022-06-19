@@ -1,6 +1,7 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
+const { Model, DataTypes } = require('sequelize')
+const sequelize = require('../config/config')
 
+// create Application model
 class Application extends Model {}
 
 Application.init(
@@ -8,46 +9,46 @@ Application.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      autoIncrement: true,
       primaryKey: true,
+      autoIncrement: true,
     },
-    jobname: {
+    CompanyName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    jobtype: {
-      type: DataTypes.STRING,
-      allowNull: false,
+    InterviewDate: {
+      type: DataTypes.DATE,
+      allowNull: true,
     },
-    joblocation: {
+    InterviewTime: {
+      type: DataTypes.TIME,
+      allowNull: true,
+    },
+    InterviewLocation: {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    jobdescription: {
+    DateApplied: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+    Status: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    appsubmit: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    appstatus: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    appnotes: {
+    FollowUp: {
       type: DataTypes.STRING,
       allowNull: true,
     },
   },
   {
-    // TABLE CONFIGURATION OPTIONS
+    hooks: {},
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "application",
+    modelName: 'Application',
   }
-);
+)
 
-module.exports = Application;
+module.exports = Application

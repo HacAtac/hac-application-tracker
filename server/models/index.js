@@ -1,4 +1,12 @@
-const User = require("./User");
-const Application = require("./Application");
+const Application = require('./Application')
+const User = require('./User')
 
-module.exports = { User, Application };
+Application.belongsTo(User, {
+  foreignKey: 'userId',
+  onDelete: 'CASCADE',
+})
+
+module.exports = {
+  User,
+  Application,
+}
