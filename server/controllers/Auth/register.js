@@ -14,11 +14,11 @@ const register = asyncHandler(async (req, res) => {
       isAdmin: req.body.isAdmin,
     })
     console.log('user', user)
-    //check if user is already in the database
+
+    //dont allow duplicate username
     if (!user) {
       return res.status(400).json({
-        success: false,
-        error: 'User already exists',
+        message: `Username already exists`,
       })
     }
 
@@ -27,7 +27,7 @@ const register = asyncHandler(async (req, res) => {
     res.status(200).json({
       token,
       data: user,
-      message: `Welcome ${user.name}`,
+      message: `Welcome ${req.user}`,
     })
   } catch (error) {
     console.error(error)
