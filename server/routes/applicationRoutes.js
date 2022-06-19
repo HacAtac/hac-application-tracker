@@ -3,6 +3,7 @@ const router = express.Router()
 const application = require('../controllers/Application/application')
 const putApplication = require('../controllers/Application/putApplication')
 const delApp = require('../controllers/Application/delApp')
+const getApps = require('../controllers/Application/getApps')
 
 const { protect, admin } = require('../middleware/authMiddleware')
 
@@ -12,7 +13,7 @@ const { protect, admin } = require('../middleware/authMiddleware')
  * @Route POST /api/application
  */
 
-router.route('/').post(protect, application)
+router.route('/').post(protect, application).get(protect, getApps)
 router.route('/:id').put(protect, putApplication).delete(protect, admin, delApp)
 
 module.exports = router
