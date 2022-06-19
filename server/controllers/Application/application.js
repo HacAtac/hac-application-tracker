@@ -1,5 +1,6 @@
 const asyncHandler = require('express-async-handler')
-const Application = require('../../models/Application')
+//const Application = require('../../models/Application')
+const { Application } = require('../../models')
 
 //@desc POST new application
 //@route POST /api/application

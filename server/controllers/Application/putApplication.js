@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler')
-const Application = require('../../models/Application')
+const { Application } = require('../../models')
 
 //@desc PUT  update a application
 //@route PUT /api/application/:id

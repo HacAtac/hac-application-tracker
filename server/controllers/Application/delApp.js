@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler')
-const Application = require('../../models/Application')
+const { Application } = require('../../models')
 
 //@desc DEL delete a application
 //@route DEL /api/application/:id
@@ -19,6 +19,7 @@ const delApp = asyncHandler(async (req, res) => {
 
     res.status(200).json({
       message: `${req.user.username} deleted an application with id: ${req.params.id}`,
+      userId: req.user.id,
     })
   } catch (error) {
     console.error(error)
