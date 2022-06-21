@@ -1,34 +1,11 @@
-import React, { useState } from "react";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Applications from "./components/Applications";
+import React from 'react'
 
-function App() {
-  const [currentPage, setCurrentPage] = useState("Home");
-
-  const handleClick = () => {
-    switch (currentPage) {
-      case "home":
-        return <Home />;
-
-      case "applications":
-        return <Applications />;
-      default:
-        return <Home />;
-    }
-  };
-
+const App = () => {
   return (
-    <div>
-      <Header
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      ></Header>
-      <div>
-        <main>{handleClick()}</main>
-      </div>
-    </div>
-  );
+    <>
+      <h1>Hello World</h1>
+    </>
+  )
 }
 
-export default App;
+export default App
