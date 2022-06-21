@@ -10,14 +10,14 @@ import {
 import { setAlert } from './alert'
 import axios from 'axios'
 
-export const login = (email, password) => async (dispatch) => {
+export const login = (username, password) => async (dispatch) => {
   try {
     dispatch({
       type: USER_LOGIN_REQUEST,
     })
 
     const { data } = await axios.post('/api/auth/login', {
-      email,
+      username,
       password,
     })
     console.log(data)
@@ -55,19 +55,15 @@ export const logout = () => (dispatch) => {
 }
 
 export const register =
-  ({ user, subscription }, partner = '') =>
+  ({ user }) =>
   async (dispatch) => {
     try {
       dispatch({
         type: USER_REGISTER_REQUEST,
       })
-      const { data } = await axios.post(
-        `/api/auth/register?partnerid=${partner}`,
-        {
-          user,
-          subscription,
-        }
-      )
+      const { data } = await axios.post(`/api/auth/register`, {
+        user,
+      })
 
       dispatch({
         type: USER_REGISTER_SUCCESS,
