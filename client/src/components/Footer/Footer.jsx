@@ -1,9 +1,9 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 
-const footer = () => {
+const Footer = () => {
   return (
-    <footer>
+    <div>
       <Container>
         <Row>
           <Col className='text-center py-3'>
@@ -11,8 +11,8 @@ const footer = () => {
           </Col>
         </Row>
       </Container>
-    </footer>
+    </div>
   )
 }
 
-export default footer
+export default Footer
