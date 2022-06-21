@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === 'development') {
 const sequelize = require('./config/config')
 
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+//app.use(express.urlencoded({ extended: false }))
 
 app.use('/api/auth', authRoutes)
 app.use('/api/application', applicationRoutes)
