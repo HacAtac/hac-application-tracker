@@ -1,7 +1,7 @@
 <h1>Job Application Tracker<h1>
 
 <h2>Description</h2>
-  <p>Created With: Front-End: React, state, hooks, props, JSX, conditional rendering, tailwind + css, MVC structure. Back-End: Node, Express, Mysql2, Sequelize.</br>
+  <p>Created With: Front-End: React, Redux, Node, mySQL, REST API, </br>
  First: I've used MySQL/Sequelize ORM to make a DB for Users, and Applications</br> 
  Second: I've then used express to make a RESTful API </br> 
  Third: Once I've tested all HTTP CRUD methods i've then moved to the front-end</br>
@@ -21,12 +21,12 @@
 JavaScript </br>
 JSX </br>
 React </br>
-TailWind </br>
-CSS </br>
+Redux </br>
+React Bootstrap </br>
+React Router Dom </br>
+React Hooks </br>
+CSS3/Bootstrap </br>
 Object Oriented Programming </br>
-useEffect </br>
-useState </br>
-props</br>
 Node</br>
 Express</br>
 MySQL</br>
